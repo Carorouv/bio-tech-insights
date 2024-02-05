@@ -1,83 +1,113 @@
-
-
-from st_on_hover_tabs import on_hover_tabs
 import streamlit as st
-import os
-import base64
+from PIL import Image
+# Mise en place du background de l'application
+image_url = "https://raw.githubusercontent.com/votre_utilisateur/votre_repo/master/chemin_vers_image/wallpaper.jpg"
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background: url("{image_url}") no-repeat center center fixed;
+        background-size: cover;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+set_bg_hack_url()
+# Logo centré en haut à gauche
+st.sidebar.image(Image.open('C:/Users/Wilders/Desktop/P3 BioTechInsight/logobiotechinsight.png'), width=200, use_column_width=False)
+# Définir une fonction pour le contenu de chaque page
+def maladies_cardiaques():
+    st.write('### Maladies cardiaques : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
+    # 5 champs pour la saisie des données
+    data1 = st.text_input("Donnée 1")
+    data2 = st.text_input("Donnée 2")
+    data3 = st.text_input("Donnée 3")
+    data4 = st.text_input("Donnée 4")
+    data5 = st.text_input("Donnée 5")
+    # Bouton pour lancer le traitement des données
+    if st.button("Lancer le traitement"):
+        # Ajoutez ici le code pour traiter les données des maladies cardiaques
+        st.write("Traitement en cours...")
+def maladies_du_foie():
+    # Ajoutez le code pour la page "Maladies du foie" ici
+    st.write('### Maladies du foie : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
+    # 5 champs pour la saisie des données
+    data1 = st.text_input("Donnée 1")
+    data2 = st.text_input("Donnée 2")
+    data3 = st.text_input("Donnée 3")
+    data4 = st.text_input("Donnée 4")
+    data5 = st.text_input("Donnée 5")
+    # Bouton pour lancer le traitement des données
+    if st.button("Lancer le traitement"):
+        # Ajoutez ici le code pour traiter les données des maladies du foie
+        st.write("Traitement en cours...")
+def maladie_renale_chronique():
+    # Ajoutez le code pour la page "Maladie rénale chronique" ici
+    st.write('### Maladie rénale chronique : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
+    # 5 champs pour la saisie des données
+    data1 = st.text_input("Donnée 1")
+    data2 = st.text_input("Donnée 2")
+    data3 = st.text_input("Donnée 3")
+    data4 = st.text_input("Donnée 4")
+    data5 = st.text_input("Donnée 5")
+    # Bouton pour lancer le traitement des données
+    if st.button("Lancer le traitement"):
+        # Ajoutez ici le code pour traiter les données de la maladie rénale chronique
+        st.write("Traitement en cours...")
+def diabete():
+    # Ajoutez le code pour la page "Diabète" ici
+    st.write('### Diabète : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
+    # 5 champs pour la saisie des données
+    data1 = st.text_input("Donnée 1")
+    data2 = st.text_input("Donnée 2")
+    data3 = st.text_input("Donnée 3")
+    data4 = st.text_input("Donnée 4")
+    data5 = st.text_input("Donnée 5")
+    # Bouton pour lancer le traitement des données
+    if st.button("Lancer le traitement"):
+        # Ajoutez ici le code pour traiter les données du diabète
+        st.write("Traitement en cours...")
+def cancer_du_sein():
+    # Ajoutez le code pour la page "Cancer du sein" ici
+    st.write('### Cancer du sein : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
+    # 5 champs pour la saisie des données
+    data1 = st.text_input("Donnée 1")
+    data2 = st.text_input("Donnée 2")
+    data3 = st.text_input("Donnée 3")
+    data4 = st.text_input("Donnée 4")
+    data5 = st.text_input("Donnée 5")
+    # Bouton pour lancer le traitement des données
+    if st.button("Lancer le traitement"):
+        # Ajoutez ici le code pour traiter les données du cancer du sein
+        st.write("Traitement en cours...")
+# Boutons dans la sidebar à gauche
+selected_page = st.sidebar.radio("Navigation", ["Accueil", "Maladies cardiaques", "Maladies du foie", "Maladie rénale chronique", "Diabète", "Cancer du sein"])
+# Contenu des boutons
+if selected_page == "Accueil":
+    # Texte principal en gras
+    st.write("""
+    # **Bienvenue dans votre application de prédiction et de prévention des risques liés à la santé.**
+    Cette plateforme vous offre la possibilité de saisir les biomarqueurs de vos patients afin d'évaluer leur risque de développer diverses pathologies, telles que le cancer du sein, les maladies cardio-vasculaires, le diabète, les affections hépatiques ou les maladies rénales chroniques.
+    Cette prédiction concernant les probabilités de développement de ces maladies ne saurait en aucun cas remplacer votre avis de professionnel de la santé et n'a vocation qu'à vous aider dans la prise de décisions pour d'éventuels examens complémentaires.
+    Les données que vous saisissez sont entièrement anonymisées et ne sont pas conservées, en stricte conformité avec le Règlement Général de Protection des Données (RGPD).""")
+elif selected_page == "Maladies cardiaques":
+    maladies_cardiaques()
+elif selected_page == "Maladies du foie":
+    maladies_du_foie()
+elif selected_page == "Maladie rénale chronique":
+    maladie_renale_chronique()
+elif selected_page == "Diabète":
+    diabete()
+elif selected_page == "Cancer du sein":
+    cancer_du_sein()
 
-st.set_page_config(layout="wide")
-
-#st.header("Custom tab component for on-hover navigation bar")
-
-
-
-
-# Mise en place du background de l'appli
-#def set_bg_hack_url():
-    # Remplacez l'URL ci-dessous par l'URL directe de votre image hébergée sur le web
-    # image_url = "https://media2.ledevoir.com/images_galerie/nwd_1589764_1231201/image.jpg"
-    # st.markdown(
-    #      f"""
-    #      <style>
-    #      .stApp {{
-    #          background: url("{image_url}");
-    #          background-size: cover;
-             
-    #      }}
-    #      </style>
-    #      """,
-    #      unsafe_allow_html=True
-    #  )
-# set_bg_hack_url()
-
-
-
-# Chemin vers l'image dans le même dossier que votre code
-image_path = "medical_wallpaper_2.jpg"
-
-page_bg_img = '''
-<style>
-body {
-background-image: url("{image_path}");
-background-size: cover;
-}
-</style>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 
 
 
-with st.sidebar:
-    tabs = on_hover_tabs(tabName=['Accueil', 'Diabète', 'Cancer du sein', 'Maladie du foie', 'Maladies cardiaques', 'Maladie rénale chronique' ], 
-                         iconName=['accueil', 'diabète', 'cancer du sein', 'maladie du foie', 'maladies cardiaques', 'maladie rénale chronique'], default_choice=0)
-   
-if tabs =='Accueil':
-    st.title("Accueil")
-    st.write("Bienvenue dans notre application de prédiction et de prévention des risques liés à la santé.")
-    st.write("Cette plateforme vous offre la possibilité de saisir vos propres bio-marqueurs ou ceux de vos patients afin d'évaluer le risque de développer diverses pathologies, telles que le cancer du sein, les maladies cardio-vasculaires, le diabète, les affections hépatiques ou les maladies rénales chroniques.\n\nIl est important de souligner que cette prédiction concernant les probabilités de développement de ces maladies ne saurait en aucun cas remplacer l'avis d'un professionnel de la santé. \n\nNous tenons à vous assurer que vos données sont entièrement anonymisées et ne sont pas conservées, en stricte conformité avec le Règlement Général de Protection des Données (RGPD).")
 
-   
 
-elif tabs == 'Diabète':
-    st.title("Diabète")
-    st.write('Name of option is {}'.format(tabs))
 
-elif tabs == 'Cancer du sein':
-    st.title("Cancer du sein")
-    st.write('Name of option is {}'.format(tabs))
 
-elif tabs == 'Maladie du foie':
-    st.title("Maladie du foie")
-    st.write('Name of option is {}'.format(tabs))
-
-elif tabs == 'Maladies cardiaques':
-    st.title("Maladies cardiaques")
-    st.write('Name of option is {}'.format(tabs))
-
-elif tabs == 'Maladie rénale chronique':
-    st.title("Maladie rénale chronique")
-    st.write('Name of option is {}'.format(tabs))
-    
