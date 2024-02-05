@@ -24,7 +24,7 @@ def set_bg_hack_url():
 set_bg_hack_url()
 # Logo centré en haut à gauche
 logo ='https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/logobiotechinsight.png'
-st.sidebar.image(Image.open(logo), width=200, use_column_width=False)
+st.sidebar.image(Image.open('logobiotechinsight.png'), width=200, use_column_width=False)
 # Définir une fonction pour le contenu de chaque page
 def maladies_cardiaques():
     st.write('### Maladies cardiaques : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
