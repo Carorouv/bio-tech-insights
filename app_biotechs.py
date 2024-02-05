@@ -13,7 +13,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-set_bg_hack_url()
+# set_bg_hack_url()
 # Logo centré en haut à gauche
 st.sidebar.image(Image.open('C:/Users/Wilders/Desktop/P3 BioTechInsight/logobiotechinsight.png'), width=200, use_column_width=False)
 # Définir une fonction pour le contenu de chaque page
