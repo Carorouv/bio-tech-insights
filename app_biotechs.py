@@ -1,7 +1,10 @@
 import streamlit as st
 from PIL import Image
+
+
 # Mise en place du background de l'application
-image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/medical_wallpaper_2.jpg"
+def set_bg_hack_url():
+    image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/medical_wallpaper_2.jpg"
 st.markdown(
     f"""
     <style>
@@ -13,7 +16,12 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-# set_bg_hack_url()
+
+
+
+
+
+set_bg_hack_url()
 # Logo centré en haut à gauche
 st.sidebar.image(Image.open('C:/Users/Wilders/Desktop/P3 BioTechInsight/logobiotechinsight.png'), width=200, use_column_width=False)
 # Définir une fonction pour le contenu de chaque page
@@ -101,9 +109,6 @@ elif selected_page == "Diabète":
     diabete()
 elif selected_page == "Cancer du sein":
     cancer_du_sein()
-
-
-
 
 
 
