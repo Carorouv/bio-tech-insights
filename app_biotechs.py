@@ -5,7 +5,7 @@ from PIL import Image
 # Mise en place du background de l'application
 def set_bg_hack_url():
     image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/medical_wallpaper_2.jpg"
-st.markdown(
+    st.markdown(
     f"""
     <style>
     .stApp {{
@@ -15,8 +15,8 @@ st.markdown(
     </style>
     """,
     unsafe_allow_html=True
-)
-
+    )
+    
 
 
 
