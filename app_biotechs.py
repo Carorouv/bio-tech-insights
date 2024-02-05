@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 # Mise en place du background de l'application
-image_url = "https://raw.githubusercontent.com/votre_utilisateur/votre_repo/master/chemin_vers_image/wallpaper.jpg"
+image_url = "https://raw.githubusercontent.com/Carorouv/votre_repo/master/chemin_vers_image/wallpaper.jpg"
 st.markdown(
     f"""
     <style>
