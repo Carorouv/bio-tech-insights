@@ -78,6 +78,40 @@ def diabete():
         # Ajoutez ici le code pour traiter les données du diabète
         st.write("Traitement en cours...")
 def cancer_du_sein():
+    # Définition d'une fonction pour la page "Cancer du sein"
+    st.write('### Cancer du sein : renseignez les biomarqueurs de votre patient(e) et lancez le traitement')
+    # Champs pour la saisie des données
+    mean_radius = st.number_input("Rayon moyen de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_texture = st.number_input("Texture moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_smoothness = st.number_input("Régularité moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_compactness = st.number_input("Compacité moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_concavity = st.number_input("Concavité moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_concave_points = st.number_input("Point concave moyen de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_symmetry = st.number_input("Symétrie moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    mean_fractal_dimension = st.number_input("Dimension fractale moyenne de la cellule", value=0.0000, step=0.0001, format="%.4f")
+    # Bouton pour Diagnostic des données
+    if st.button("Diagnostic"):
+        # Vérification si toutes les entrées sont nulles
+        if all(value == 0 for value in [mean_radius, mean_texture, mean_smoothness, mean_compactness, mean_concavity, mean_concave_points, mean_symmetry, mean_fractal_dimension]):
+            st.warning("Veuillez renseigner les biomarqueurs de vos patients pour pouvoir faire une prédiction.")
+        else:
+            # Création du tableau NumPy avec les données saisies par l'utilisateur
+            my_data = np.array([[mean_radius, mean_texture, mean_smoothness, mean_compactness, mean_concavity, mean_concave_points, mean_symmetry, mean_fractal_dimension]])
+            # Chargement du scaler PowerTransformer
+            scaler = PowerTransformer()
+            # Ajustement du scaler aux données d'entraînement
+            scaler.fit(my_data)
+            # Normalisation des données avec le scaler PowerTransformer
+            my_data_scaled = scaler.transform(my_data)
+            # Prédictions avec le modèle de cancer du sein CatBoost entraîné
+            predictions = model_cancer_breast.predict(my_data_scaled)
+            # Affichage du résultat de la prédiction
+            if predictions[0] == 0:
+                st.write("Le modèle prédit que le patient n'a pas de cancer du sein.")
+            else:
+                st.write("Le modèle prédit que le patient a un risque de développer un cancer du sein.")
+
+
     # Ajoutez le code pour la page "Cancer du sein" ici
     st.write('### Cancer du sein : renseignez les biomarqueurs de votre patient(e) et lancez le traitement.')
     # 5 champs pour la saisie des données
