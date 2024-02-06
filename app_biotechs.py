@@ -77,6 +77,20 @@ def diabete():
     if st.button("Lancer le traitement"):
         # Ajoutez ici le code pour traiter les données du diabète
         st.write("Traitement en cours...")
+
+
+# Chargement du modèle sauvegardé
+model_cancer_breast_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/CastBoost_Cancerbreast.joblib'
+response = requests.get(model_cancer_breast_url)
+response.raise_for_status()
+model_cancer_breast = joblib.load(BytesIO(response.content))
+
+ScalePwrTransf_Cancerbreast_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/ScalePwrTransf_Cancerbreast.joblib'
+response = requests.get(ScalePwrTransf_Cancerbreast_url)
+response.raise_for_status()
+scaler_cancer_breast = joblib.load(BytesIO(response.content))
+
+
 def cancer_du_sein():
     # Définition d'une fonction pour la page "Cancer du sein"
     st.write('### Cancer du sein : renseignez les biomarqueurs de votre patient(e) et lancez le traitement')
@@ -98,11 +112,11 @@ def cancer_du_sein():
             # Création du tableau NumPy avec les données saisies par l'utilisateur
             my_data = np.array([[mean_radius, mean_texture, mean_smoothness, mean_compactness, mean_concavity, mean_concave_points, mean_symmetry, mean_fractal_dimension]])
             # Chargement du scaler PowerTransformer
-            scaler = PowerTransformer()
+            # scaler = PowerTransformer() à supprimer
             # Ajustement du scaler aux données d'entraînement
-            scaler.fit(my_data)
+            # scaler.fit(my_data) à supprimer
             # Normalisation des données avec le scaler PowerTransformer
-            my_data_scaled = scaler.transform(my_data)
+            my_data_scaled = scaler_cancer_breast.transform(my_data)
             # Prédictions avec le modèle de cancer du sein CatBoost entraîné
             predictions = model_cancer_breast.predict(my_data_scaled)
             # Affichage du résultat de la prédiction
