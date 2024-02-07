@@ -54,31 +54,31 @@ def maladies_cardiaques():
 
     # Champs pour la saisie des données avec une police plus grande
     st.markdown('<div style="font-size: 24px"><label for="age">Âge:</label></div>', unsafe_allow_html=True)
-    age = st.number_input("", value=0, step=1, format="%d", key="age")
-    st.markdown('<div style="font-size: 24px"><label for="sex">Sexe (0 = femme ; 1 = homme):</label></div>', unsafe_allow_html=True)
-    sex = st.number_input("", value=0, step=1, format="%d", key="sex") 
-    st.markdown('<div style="font-size: 24px"><label for="chest_pain">Douleur thoracique (0 = asymptomatique ; 1 = angine atypique ; 2 = douleur non-angineuse ; 3 = angine typique):</label></div>', unsafe_allow_html=True)
-    chest_pain = st.number_input("", value=0, step=1, format="%d", key="chest_pain") 
+    age = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="age")
+    st.markdown('<div style="font-size: 24px"><label for="sex">Sexe:</label></div>', unsafe_allow_html=True)
+    sex = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="sex") 
+    st.markdown('<div style="font-size: 24px"><label for="chest_pain">Douleur thoracique:</label></div>', unsafe_allow_html=True)
+    chest_pain = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="chest_pain") 
     st.markdown('<div style="font-size: 24px"><label for="trestbps">Pression artérielle au repos:</label></div>', unsafe_allow_html=True)
-    trestbps = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="trestbps") 
+    trestbps = st.number_input("", value=0, min_value=0, max_value=999, step=1, format="%03d", key="trestbps") 
     st.markdown('<div style="font-size: 24px"><label for="chol">Cholestérol sérique en mg/dl:</label></div>', unsafe_allow_html=True)
-    chol = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="chol")
-    st.markdown('<div style="font-size: 24px"><label for="fbs">Taux de sucre dans le sang à jeun > 120 mg/dl (0 = non ; 1 = oui):</label></div>', unsafe_allow_html=True)
-    fbs = st.number_input("", value=0, step=1, format="%d", key="fbs") 
-    st.markdown('<div style="font-size: 24px"><label for="restecg">Résultats électrocardiographiques au repos (0 = hypertrophie ventriculaire gauche ; 1 = normal ; 2 = anomalie onde ST-T):</label></div>', unsafe_allow_html=True)
-    restecg = st.number_input("", value=0, step=1, format="%d", key="restecg")
+    chol = st.number_input("", value=0, min_value=0, max_value=999, step=1, format="%03d", key="chol")
+    st.markdown('<div style="font-size: 24px"><label for="fbs">Taux de sucre dans le sang à jeun > 120 mg/dl:</label></div>', unsafe_allow_html=True)
+    fbs = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="fbs") 
+    st.markdown('<div style="font-size: 24px"><label for="restecg">Résultats électrocardiographiques au repos:</label></div>', unsafe_allow_html=True)
+    restecg = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="restecg")
     st.markdown('<div style="font-size: 24px"><label for="thalach">Fréquence cardiaque maximale atteinte:</label></div>', unsafe_allow_html=True)
-    thalach = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="thalach")
-    st.markdown('<div style="font-size: 24px"><label for="exang">Angine induite par lexercice (0 = non ; 1 = oui):</label></div>', unsafe_allow_html=True)
-    exang = st.number_input("", value=0, step=1, format="%d", key="exang")
-    st.markdown('<div style="font-size: 24px"><label for="oldpeak">Dépression segement ST induite par lexercice par rapport au repos:</label></div>', unsafe_allow_html=True)
-    oldpeak = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="oldpeak")
-    st.markdown('<div style="font-size: 24px"><label for="slope">Pente segment ST à lexercice (0 = pente descendante ; 1 = plat ; 2 = pente ascendante):</label></div>', unsafe_allow_html=True)
-    slope = st.number_input("", value=0, step=1, format="%d", key="slope")
+    thalach = st.number_input("", value=0, min_value=0, max_value=999, step=1, format="%03d", key="thalach")
+    st.markdown("<div style='font-size: 24px'><label for='exang'>Angine induite par l'exercice:</label></div>", unsafe_allow_html=True)
+    exang = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="exang")
+    st.markdown("<div style='font-size: 24px'><label for='oldpeak'>Dépression du segment ST induite par l'exercice par rapport au repos:</label></div>", unsafe_allow_html=True)
+    oldpeak = st.number_input("", value=0.0, step=0.1, format="%.1f", key="oldpeak")
+    st.markdown("<div style='font-size: 24px'><label for='slope'>Pente du segment ST à l'exercice:</label></div>", unsafe_allow_html=True)
+    slope = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="slope")
     st.markdown('<div style="font-size: 24px"><label for="ca">Nombre de vaisseaux principaux colorés par la fluoroscopie:</label></div>', unsafe_allow_html=True)
-    ca = st.number_input("", value=0, step=1, format="%d", key="ca")
-    st.markdown('<div style="font-size: 24px"><label for="thal">Résultat thallium scintigraphique (1 = défaut fixe ; 2 = flux sanguin normal ; 3 = anomalie réversible):</label></div>', unsafe_allow_html=True)
-    thal = st.number_input("", value=0, step=1, format="%d", key="thal")
+    ca = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="ca")
+    st.markdown('<div style="font-size: 24px"><label for="thal">Résultat thallium scintigraphique:</label></div>', unsafe_allow_html=True)
+    thal = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="thal")
 
     # Bouton pour Diagnostic des données
     if st.button("Diagnostic"):
@@ -121,17 +121,17 @@ def maladies_du_foie():
 
     # Champs pour la saisie des données avec une police plus grande
     st.markdown('<div style="font-size: 24px"><label for="age">Âge:</label></div>', unsafe_allow_html=True)
-    age = st.number_input("", value=0, step=1, format="%d", key="age")
-    st.markdown('<div style="font-size: 24px"><label for="sex">Sexe (0 = femme ; 1 = homme):</label></div>', unsafe_allow_html=True)
-    sex = st.number_input("", value=0, step=1, format="%d", key="sex") 
+    age = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="age")
+    st.markdown('<div style="font-size: 24px"><label for="sex">Sexe:</label></div>', unsafe_allow_html=True)
+    sex = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="sex") 
     st.markdown('<div style="font-size: 24px"><label for="total_bilirubin">Bilirubine totale:</label></div>', unsafe_allow_html=True)
-    total_bilirubin = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="total_bilirubin") 
+    total_bilirubin = st.number_input("", value=0.0, min_value=0.0, max_value=99.9, step=0.1, format="%.1f", key="total_bilirubin") 
     st.markdown('<div style="font-size: 24px"><label for="alkaline_phosphotase">Phosphatase alcaline:</label></div>', unsafe_allow_html=True)
-    alkaline_phosphotase = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="alkaline_phosphotase") 
+    alkaline_phosphotase = st.number_input("", value=0, min_value=0, max_value=999, step=1, format="%d", key="alkaline_phosphotase") 
     st.markdown('<div style="font-size: 24px"><label for="alamine_aminotransferase">Alamine aminotransférase:</label></div>', unsafe_allow_html=True)
-    alamine_aminotransferase = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="alamine_aminotransferase")
+    alamine_aminotransferase = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%d", key="alamine_aminotransferase")
     st.markdown('<div style="font-size: 24px"><label for="albumin_and_globulin_ratio">Rapport albumine et globuline:</label></div>', unsafe_allow_html=True)
-    albumin_and_globulin_ratio = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="albumin_and_globulin_ratio") 
+    albumin_and_globulin_ratio = st.number_input("", value=0.0, min_value=0.0, max_value=9.99, step=0.01, format="%.2f", key="albumin_and_globulin_ratio") 
 
     # Bouton pour Diagnostic des données
     if st.button("Diagnostic"):
@@ -173,49 +173,49 @@ def maladie_renale_chronique():
 
     # Champs pour la saisie des données avec une police plus grande
     st.markdown('<div style="font-size: 24px"><label for="age">Âge:</label></div>', unsafe_allow_html=True)
-    age = st.number_input("", value=0, step=1, format="%d", key="age")
+    age = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="age")
     st.markdown('<div style="font-size: 24px"><label for="specific_gravity">Gravité spécifique:</label></div>', unsafe_allow_html=True)
-    specific_gravity = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="specific_gravity")
+    specific_gravity = st.number_input("", value=0.000, step=0.0001, format="%.4f", key="specific_gravity")
     st.markdown('<div style="font-size: 24px"><label for="albumin">Albumine:</label></div>', unsafe_allow_html=True)
-    albumin = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="albumin")
+    albumin = st.number_input("", value=0.0, step=0.1, format="%.1f", key="albumin")
     st.markdown('<div style="font-size: 24px"><label for="sugar">Sucre:</label></div>', unsafe_allow_html=True)
-    sugar = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="sugar")
+    sugar = st.number_input("", value=0.0, step=0.1, format="%.1f", key="sugar")
     st.markdown('<div style="font-size: 24px"><label for="red_blood_cells">Globules rouges:</label></div>', unsafe_allow_html=True)
-    red_blood_cells = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="red_blood_cells")
+    red_blood_cells = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="red_blood_cells")
     st.markdown('<div style="font-size: 24px"><label for="pus_cells">Cellules de pus:</label></div>', unsafe_allow_html=True)
-    pus_cells = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="pus_cells")
+    pus_cells = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="pus_cells")
     st.markdown('<div style="font-size: 24px"><label for="pus_cells_clumps">Amas de cellules de pus:</label></div>', unsafe_allow_html=True)
-    pus_cells_clumps = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="pus_cells_clumps")
+    pus_cells_clumps = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="pus_cells_clumps")
     st.markdown('<div style="font-size: 24px"><label for="bacterias">Bactéries:</label></div>', unsafe_allow_html=True)
-    bacterias = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="bacterias")
+    bacterias = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="bacterias")
     st.markdown('<div style="font-size: 24px"><label for="blood_glucose_random">Glycémie aléatoire:</label></div>', unsafe_allow_html=True)
-    blood_glucose_random = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="blood_glucose_random")
+    blood_glucose_random = st.number_input("", value=0.0, min_value=0.0, max_value=999.9, step=0.1, format="%.1f", key="blood_glucose_random")
     st.markdown('<div style="font-size: 24px"><label for="blood_urea">Urée sanguine:</label></div>', unsafe_allow_html=True)
-    blood_urea = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="blood_urea")
+    blood_urea = st.number_input("", value=0.0, min_value=0.0, max_value=99.9, step=0.1, format="%.1f", key="blood_urea")
     st.markdown('<div style="font-size: 24px"><label for="serum_creatinine">Créatinine sérique:</label></div>', unsafe_allow_html=True)
-    serum_creatinine = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="serum_creatinine")
+    serum_creatinine = st.number_input("", value=0.0, min_value=0.0, max_value=9.9, step=0.1, format="%.1f", key="serum_creatinine")
     st.markdown('<div style="font-size: 24px"><label for="sodium">Sodium:</label></div>', unsafe_allow_html=True)
-    sodium = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="sodium")
+    sodium = st.number_input("", value=0.0, min_value=0.0, max_value=999.9, step=0.1, format="%.1f", key="sodium")
     st.markdown('<div style="font-size: 24px"><label for="potassium">Potassium:</label></div>', unsafe_allow_html=True)
-    potassium = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="potassium")
+    potassium = st.number_input("", value=0.0, min_value=0.0, max_value=9.9, step=0.1, format="%.1f", key="potassium")
     st.markdown('<div style="font-size: 24px"><label for="haemoglobin">Hémoglobine:</label></div>', unsafe_allow_html=True)
-    haemoglobin = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="haemoglobin")
+    haemoglobin = st.number_input("", value=0.0, min_value=0.0, max_value=99.9, step=0.1, format="%.1f", key="haemoglobin")
     st.markdown('<div style="font-size: 24px"><label for="white_blood_cells_count">Numération des globules blancs:</label></div>', unsafe_allow_html=True)
-    white_blood_cells_count = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="white_blood_cells_count")
+    white_blood_cells_count = st.number_input("", value=0.0, min_value=0.0, max_value=9.9, step=0.1, format="%.1f", key="white_blood_cells_count")
     st.markdown('<div style="font-size: 24px"><label for="red_blood_cells_count">Numération des globules rouges:</label></div>', unsafe_allow_html=True)
-    red_blood_cells_count = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="red_blood_cells_count")
+    red_blood_cells_count = st.number_input("", value=0.0, min_value=0.0, max_value=9.9, step=0.1, format="%.1f", key="red_blood_cells_count")
     st.markdown('<div style="font-size: 24px"><label for="hypertension">Hypertension:</label></div>', unsafe_allow_html=True)
-    hypertension = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="hypertension") 
+    hypertension = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="hypertension") 
     st.markdown('<div style="font-size: 24px"><label for="diabetes_mellitus">Diabète sucré:</label></div>', unsafe_allow_html=True)
-    diabetes_mellitus = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="diabetes_mellitus")
+    diabetes_mellitus = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="diabetes_mellitus")
     st.markdown('<div style="font-size: 24px"><label for="coronary_artery_disease">Maladie coronarienne:</label></div>', unsafe_allow_html=True)
-    coronary_artery_disease = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="coronary_artery_disease")
+    coronary_artery_disease = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="coronary_artery_disease")
     st.markdown('<div style="font-size: 24px"><label for="appetite">Appétit:</label></div>', unsafe_allow_html=True)
-    appetite = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="appetite")
+    appetite = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="appetite")
     st.markdown('<div style="font-size: 24px"><label for="pedal_edema">Œdème des membres inférieurs:</label></div>', unsafe_allow_html=True)
-    pedal_edema = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="pedal_edema")
+    pedal_edema = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="pedal_edema")
     st.markdown('<div style="font-size: 24px"><label for="anemia">Anémie:</label></div>', unsafe_allow_html=True)
-    anemia = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="anemia")
+    anemia = st.number_input("", value=0, min_value=0, max_value=9, step=1, format="%d", key="anemia")
 
     # Bouton pour Diagnostic des données
     if st.button("Diagnostic"):
@@ -251,19 +251,19 @@ def diabete():
 
     # Champs pour la saisie des données avec une police plus grande
     st.markdown('<div style="font-size: 24px"><label for="pregnancies">Nombre de grossesses:</label></div>', unsafe_allow_html=True)
-    pregnancies = st.number_input("", value=0, step=1, format="%d", key="pregnancies")
+    pregnancies = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="pregnancies")
     st.markdown('<div style="font-size: 24px"><label for="glucose">Niveau de glucose:</label></div>', unsafe_allow_html=True)
-    glucose = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="glucose") 
+    glucose = st.number_input("", value=0, min_value=0, max_value=999, step=1, format="%03d", key="glucose") 
     st.markdown('<div style="font-size: 24px"><label for="blood_pressure">Pression artérielle:</label></div>', unsafe_allow_html=True)
-    blood_pressure = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="blood_pressure") 
+    blood_pressure = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="blood_pressure") 
     st.markdown('<div style="font-size: 24px"><label for="skin_thickness">Épaisseur de la peau:</label></div>', unsafe_allow_html=True)
-    skin_thickness = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="skin_thickness") 
+    skin_thickness = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="skin_thickness") 
     st.markdown('<div style="font-size: 24px"><label for="BMI">Indice de masse corporelle (BMI):</label></div>', unsafe_allow_html=True)
-    BMI = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="BMI")
+    BMI = st.number_input("", value=0.0, step=0.1, format="%.1f", key="BMI")
     st.markdown('<div style="font-size: 24px"><label for="diabetes_pedigree_function">Fonction de pédigrée diabétique:</label></div>', unsafe_allow_html=True)
-    diabetes_pedigree_function = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="diabetes_pedigree_function") 
+    diabetes_pedigree_function = st.number_input("", value=0.000, step=0.001, format="%.3f", key="diabetes_pedigree_function") 
     st.markdown('<div style="font-size: 24px"><label for="age">Âge:</label></div>', unsafe_allow_html=True)
-    age = st.number_input("", value=0, step=1, format="%d", key="age")
+    age = st.number_input("", value=0, min_value=0, max_value=99, step=1, format="%02d", key="age")
 
     # Bouton pour Diagnostic des données
     if st.button("Diagnostic"):
@@ -303,21 +303,22 @@ def cancer_du_sein():
 
     # Champs pour la saisie des données avec une police plus grande
     st.markdown('<div style="font-size: 24px"><label for="mean_radius">Rayon moyen de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_radius = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_radius")    
+    mean_radius = st.number_input("", value=0.00, step=0.01, format="%.2f", key="mean_radius")    
     st.markdown('<div style="font-size: 24px"><label for="mean_texture">Texture moyenne de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_texture = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_texture") 
+    mean_texture = st.number_input("", value=0.00, step=0.01, format="%.2f", key="mean_texture") 
     st.markdown('<div style="font-size: 24px"><label for="mean_smoothness">Régularité moyenne de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_smoothness = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_smoothness") 
+    mean_smoothness = st.number_input("", value=0.00000, step=0.00001, format="%.5f", key="mean_smoothness") 
     st.markdown('<div style="font-size: 24px"><label for="mean_compactness">Compacité moyenne de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_compactness = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_compactness") 
+    mean_compactness = st.number_input("", value=0.00000, step=0.00001, format="%.5f", key="mean_compactness") 
     st.markdown('<div style="font-size: 24px"><label for="mean_concavity">Concavité moyenne de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_concavity = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_concavity")
-    st.markdown('<div style="font-size: 24px"><label for="mean_concave_points">Point concave moyen de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_concave_points = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_concave_points") 
+    mean_concavity = st.number_input("", value=0.00000, step=0.00001, format="%.5f", key="mean_concavity")
+    st.markdown('<div style="font-size: 24px"><label for="mean_concave_points">Moyenne des points de concavité de la cellule:</label></div>', unsafe_allow_html=True)
+    mean_concave_points = st.number_input("", value=0.00000, step=0.00001, format="%.5f", key="mean_concave_points") 
     st.markdown('<div style="font-size: 24px"><label for="mean_symmetry">Symétrie moyenne de la cellule:</label></div>', unsafe_allow_html=True)
     mean_symmetry = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_symmetry")
     st.markdown('<div style="font-size: 24px"><label for="mean_fractal_dimension">Dimension fractale moyenne de la cellule:</label></div>', unsafe_allow_html=True)
-    mean_fractal_dimension = st.number_input("", value=0.0000, step=0.0001, format="%.4f", key="mean_fractal_dimension")
+    mean_fractal_dimension = st.number_input("", value=0.00000, step=0.00001, format="%.5f", key="mean_fractal_dimension")
+
 
     # Bouton pour Diagnostic des données
     if st.button("Diagnostic"):
@@ -357,20 +358,15 @@ if selected_page == "Accueil":
 
     # Affichage des icônes côte à côte avec une taille ajustée
     icons = [
-        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
-    /main/coeur.png',
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/coeur.png',
 
-        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
-    /main/diabete.png',
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/diabete.png',
 
-        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
-    /main/foie.png',
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/foie.png',
 
-        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
-    /main/reins.png',
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/reins.png',
 
-        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
-    /main/sein.png'
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/sein.png'
 
     ]
 
