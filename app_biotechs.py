@@ -34,7 +34,7 @@ st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
 #st.sidebar.image(st.image('https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png'), width=280, use_column_width=False)
 
 # Utilisez st.sidebar.markdown() pour afficher l'image à partir de l'URL
-st.sidebar.markdown("![](https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png)")
+st.sidebar.markdown("![](https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png)", width=280, use_column_width=False)
 
 
 
