@@ -18,7 +18,7 @@ st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
 # Mise en place du background de l'application
 image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/wallpaper_3.png"
 
-#st.markdown(
+st.markdown(
     f"""
     <style>
     .stApp {{
@@ -29,6 +29,7 @@ image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/w
     """,
     unsafe_allow_html=True
 )
+
 
 
 # Utilisez st.sidebar.markdown() avec la balise HTML <img> pour afficher l'image avec une largeur spécifiée
