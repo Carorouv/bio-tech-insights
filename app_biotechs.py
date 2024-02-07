@@ -16,22 +16,20 @@ from sklearn.preprocessing import StandardScaler
 st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
 
 # Mise en place du background de l'application
-#image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/wallpaper_3.png"
+image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/wallpaper_3.png"
 
 #st.markdown(
-#     f"""
-#     <style>
-#     .stApp {{
-#         background: url("{image_url}") no-repeat center center fixed;
-#         background-size: cover;
-#     }}
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
+    f"""
+    <style>
+    .stApp {{
+        background: url("{image_url}") no-repeat center center fixed;
+        background-size: cover;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Logo centré en haut à gauche
-#st.sidebar.image(st.image('https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png'), width=280, use_column_width=False)
 
 # Utilisez st.sidebar.markdown() avec la balise HTML <img> pour afficher l'image avec une largeur spécifiée
 st.sidebar.markdown('<img src="https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png" width="280">', unsafe_allow_html=True)
