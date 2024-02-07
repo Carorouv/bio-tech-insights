@@ -198,7 +198,7 @@ def maladie_renale_chronique():
     st.markdown('<div style="font-size: 24px"><label for="blood_urea">Urée sanguine:</label></div>', unsafe_allow_html=True)
     blood_urea = st.number_input("", value=0.0, min_value=0.0, max_value=99.9, step=0.1, format="%.1f", key="blood_urea")
     st.markdown('<div style="font-size: 24px"><label for="serum_creatinine">Créatinine sérique:</label></div>', unsafe_allow_html=True)
-    serum_creatinine = st.number_input("", value=0.0, min_value=0.0, max_value=9.9, step=0.1, format="%.1f", key="serum_creatinine")
+    serum_creatinine = st.number_input("", value=0.0, min_value=0.0, max_value=99, step=0.1, format="%.1f", key="serum_creatinine")
     st.markdown('<div style="font-size: 24px"><label for="sodium">Sodium:</label></div>', unsafe_allow_html=True)
     sodium = st.number_input("", value=0.0, min_value=0.0, max_value=999.9, step=0.1, format="%.1f", key="sodium")
     st.markdown('<div style="font-size: 24px"><label for="potassium">Potassium:</label></div>', unsafe_allow_html=True)
