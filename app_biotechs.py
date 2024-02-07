@@ -16,7 +16,8 @@ from sklearn.preprocessing import StandardScaler
 st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
 
 # Mise en place du background de l'application
-image_url = "https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/wallpaper_3.png"
+image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/wallpaper_3.png"
+
 st.markdown(
     f"""
     <style>
@@ -30,18 +31,20 @@ st.markdown(
 )
 
 # Logo centré en haut à gauche
-st.sidebar.image(Image.open('C:/Users/Wilders/Desktop/P3 BioTechInsight/Logo_BioTechInsights_détouré.png'), width=280, use_column_width=False)
+st.sidebar.image(Image.open('https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Logo_BioTechInsights_détouré.png'), width=280, use_column_width=False)
 
 # Maladies cardiaques 
 
 # Chargement du modèle sauvegardé
-model_heart_diseases_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/Gaussian_HeartDisease.joblib'
+model_heart_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/Gaussian_HeartDisease.joblib'
+
 response_model = requests.get(model_heart_diseases_url)
 response_model.raise_for_status()
 model_heart_diseases = joblib.load(BytesIO(response_model.content))
 
 # Chargement du scaler sauvegardé
-scaler_heart_diseases_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/ScalePwrTransf_HeartDisease.joblib'
+scaler_heart_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/ScalePwrTransf_HeartDisease.joblib'
+
 response_scaler = requests.get(scaler_heart_diseases_url)
 response_scaler.raise_for_status()
 scaler_heart_diseases = joblib.load(BytesIO(response_scaler.content))
@@ -100,13 +103,15 @@ def maladies_cardiaques():
 # Maladies du foie
 
 # Chargement du modèle sauvegardé
-model_liver_diseases_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/RandomForest_Liver (2).joblib'
+model_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/RandomForest_Liver.joblib'
+
 response_model = requests.get(model_liver_diseases_url)
 response_model.raise_for_status()
 model_liver_diseases = joblib.load(BytesIO(response_model.content))
 
 # Chargement du scaler sauvegardé
-scaler_liver_diseases_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/MaxAbsScaler_Liver.joblib'
+scaler_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/MaxAbsScaler_Liver.joblib'
+
 response_scaler = requests.get(scaler_liver_diseases_url)
 response_scaler.raise_for_status()
 scaler_liver_diseases = joblib.load(BytesIO(response_scaler.content))
@@ -149,13 +154,15 @@ def maladies_du_foie():
 # Maladie rénale chronique
 
 # Chargement du modèle sauvegardé
-model_ckd_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/RandomForest_CKD (1).joblib'
+model_ckd_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/RandomForest_CKD.joblib'
+
 response = requests.get(model_ckd_url)
 response.raise_for_status()
 model_ckd = joblib.load(BytesIO(response.content))
 
 # Chargement du scaler sauvegardé
-scaler_ckd_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/StandardScaler_CKD (1).joblib'
+scaler_ckd_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/StandardScaler_CKD.joblib'
+
 response = requests.get(scaler_ckd_url)
 response.raise_for_status()
 scaler_ckd = joblib.load(BytesIO(response.content))
@@ -233,7 +240,8 @@ def maladie_renale_chronique():
 # Diabète
 
 # Chargement du modèle sauvegardé
-model_diabetes_diseases_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/RandomForest_Diabetes (1).joblib'
+model_diabetes_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/RandomForest_Diabetes.joblib'
+
 response_model = requests.get(model_diabetes_diseases_url)
 response_model.raise_for_status()
 model_diabetes = joblib.load(BytesIO(response_model.content))
@@ -276,13 +284,15 @@ def diabete():
 # Cancer du sein
 
 # Chargement du modèle sauvegardé
-model_cancer_breast_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/CastBoost_Cancerbreast.joblib'
+model_cancer_breast_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/CastBoost_Cancerbreast.joblib'
+
 response = requests.get(model_cancer_breast_url)
 response.raise_for_status()
 model_cancer_breast = joblib.load(BytesIO(response.content))
 
 # Chargement du scaler sauvegardé
-ScalePwrTransf_Cancerbreast_url = 'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/ScalePwrTransf_Cancerbreast.joblib'
+ScalePwrTransf_Cancerbreast_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/ScalePwrTransf_Cancerbreast.joblib'
+
 response = requests.get(ScalePwrTransf_Cancerbreast_url)
 response.raise_for_status()
 scaler_cancer_breast = joblib.load(BytesIO(response.content))
@@ -347,11 +357,21 @@ if selected_page == "Accueil":
 
     # Affichage des icônes côte à côte avec une taille ajustée
     icons = [
-        'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/coeur.png',
-        'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/diabete.png',
-        'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/foie.png',
-        'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/reins.png',
-        'https://raw.githubusercontent.com/GregLoz/P3_BioTechInsight/main/sein.png'
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
+    /main/coeur.png',
+
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
+    /main/diabete.png',
+
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
+    /main/foie.png',
+
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
+    /main/reins.png',
+
+        'https://raw.githubusercontent.com/Carorouv/bio-tech-insights
+    /main/sein.png'
+
     ]
 
     # Taille ajustée des icônes
