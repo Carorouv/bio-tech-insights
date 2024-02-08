@@ -16,7 +16,7 @@ from sklearn.preprocessing import StandardScaler
 st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
 
 # Mise en place du background de l'application
-image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/wallpaper_3.png"
+image_url = "https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/BioTechInsights_Wallpaper.png"
 
 st.markdown(
     f"""
