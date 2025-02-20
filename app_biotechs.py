@@ -113,7 +113,7 @@ model_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-
 response_model = requests.get(model_liver_diseases_url)
 response_model.raise_for_status()
 model_liver_diseases = joblib.load(BytesIO(response_model.content))
-validation.check_is_fitted(model)
+validation.check_is_fitted(model_liver_diseases)
 joblib.dump(model_liver_diseases, "model_liver_diseases_compatible")
 
 # Chargement du scaler sauvegardé
