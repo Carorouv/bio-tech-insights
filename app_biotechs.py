@@ -115,6 +115,7 @@ response_model.raise_for_status()
 model_liver_diseases = joblib.load(BytesIO(response_model.content))
 validation.check_is_fitted(model_liver_diseases)
 joblib.dump(model_liver_diseases, "model_liver_diseases_compatible")
+model_liver_diseases_compatible= joblib.load("model_liver_diseases_compatible")
 
 # Chargement du scaler sauvegardé
 scaler_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/MaxAbsScaler_Liver.joblib'
