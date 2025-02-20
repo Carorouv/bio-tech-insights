@@ -11,6 +11,7 @@ warnings.filterwarnings("ignore")
 from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import MaxAbsScaler
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils import validation
 
 # Configuration de la page
 st.set_page_config(page_title="BioTechInsight", page_icon=":microscope:")
@@ -112,6 +113,8 @@ model_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-
 response_model = requests.get(model_liver_diseases_url)
 response_model.raise_for_status()
 model_liver_diseases = joblib.load(BytesIO(response_model.content))
+validation.check_is_fitted(model)
+joblib.dump(model_liver_diseases, "model_liver_diseases_compatible")
 
 # Chargement du scaler sauvegardé
 scaler_liver_diseases_url = 'https://raw.githubusercontent.com/Carorouv/bio-tech-insights/main/MaxAbsScaler_Liver.joblib'
@@ -148,7 +151,7 @@ def maladies_du_foie():
             # Normalisation des données avec le scaler PowerTransformer
             my_data_scaled = scaler_liver_diseases.transform(my_data)
             # Prédictions avec le modèle de cancer du sein CatBoost entraîné
-            predictions = model_liver_diseases.predict(my_data_scaled)
+            predictions = model_liver_diseases_compatible.predict(my_data_scaled)
             # Affichage du résultat de la prédiction
             if predictions[0] == 0:
                 st.write("Le modèle prédit que votre patient ne présente pas de risque de développer une maladie du foie.")
